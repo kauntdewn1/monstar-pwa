@@ -1,0 +1,568 @@
+<template>
+  <div class="relative w-full max-w-md mx-auto h-screen bg-gray-50 overflow-hidden">
+    <!-- Status Bar -->
+    <div class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl h-12">
+      <div class="flex justify-between items-center px-6 h-full text-white text-xs">
+        <span class="font-semibold">9:41</span>
+        <div class="flex gap-1">
+          <div class="w-4 h-3 border border-white rounded-sm" />
+          <div class="w-4 h-3 border border-white rounded-sm opacity-70" />
+          <div class="w-4 h-3 border border-white rounded-sm opacity-40" />
+          <div class="w-2 h-3 bg-white rounded-sm ml-1" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div
+      :class="[
+        'fixed top-14 left-4 right-4 z-50 transition-all duration-300',
+        showNotification ? 'translate-y-0 opacity-100' : '-translate-y-20 opacity-0'
+      ]"
+    >
+      <div class="bg-white/90 backdrop-blur-2xl rounded-2xl shadow-2xl p-4 border border-gray-200/50">
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-lg flex items-center justify-center flex-shrink-0">
+            <Trophy class="text-white" :size="20" />
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="font-semibold text-sm text-gray-900 mb-0.5">
+              Monstar Games
+            </div>
+            <div class="text-sm text-gray-700">
+              Novo WOD liberado: "Fran" • 21-15-9
+            </div>
+          </div>
+          <span class="text-xs text-gray-500 flex-shrink-0">agora</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Home Screen -->
+    <div v-if="activeTab === 'home'" class="pt-12 pb-24 overflow-y-auto">
+      <!-- Hero Card -->
+      <div class="px-4 pt-6 pb-4">
+        <div class="relative overflow-hidden rounded-3xl">
+          <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500" />
+          <div
+            class="absolute inset-0 opacity-10"
+            :style="{
+              backgroundImage:
+                'repeating-linear-gradient(45deg, transparent, transparent 20px, white 20px, white 40px)'
+            }"
+          />
+          <div class="relative p-6 text-white">
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <span class="text-sm font-medium opacity-90">QUALIFIER ABERTO</span>
+            </div>
+            <h1 class="text-3xl font-black mb-2">Monstar Games 2026</h1>
+            <p class="text-sm opacity-90 mb-6">Goiânia • 15-17 Fevereiro</p>
+            <button class="w-full bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl py-4 font-bold text-white active:scale-95 transition-transform flex items-center justify-center gap-2">
+              INSCREVER-SE AGORA
+              <ChevronRight :size="20" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Stats -->
+      <div class="px-4 mb-6">
+        <div class="grid grid-cols-3 gap-3">
+          <div class="bg-white rounded-2xl p-4 border border-gray-200">
+            <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center text-white mb-2">
+              <Trophy :size="18" />
+            </div>
+            <div class="text-xs text-gray-500 mb-1">Posição</div>
+            <div class="text-xl font-bold text-gray-900">#23</div>
+          </div>
+          <div class="bg-white rounded-2xl p-4 border border-gray-200">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center text-white mb-2">
+              <Clock :size="18" />
+            </div>
+            <div class="text-xs text-gray-500 mb-1">WODs</div>
+            <div class="text-xl font-bold text-gray-900">4/4</div>
+          </div>
+          <div class="bg-white rounded-2xl p-4 border border-gray-200">
+            <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center text-white mb-2">
+              <TrendingUp :size="18" />
+            </div>
+            <div class="text-xs text-gray-500 mb-1">Score</div>
+            <div class="text-xl font-bold text-gray-900">847</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modalidades -->
+      <div class="px-4 mb-3">
+        <h2 class="text-2xl font-bold text-gray-900">Modalidades</h2>
+      </div>
+      <div class="px-4 space-y-2 mb-6">
+        <button class="w-full bg-white rounded-2xl p-4 border border-gray-200 active:scale-98 transition-transform">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl">🏋️</div>
+            <div class="flex-1 text-left">
+              <div class="font-semibold text-gray-900">Workouts Qualifier</div>
+              <div class="text-sm text-gray-500">4 WODs • Finalizado</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <CheckCircle2 class="text-green-500" :size="20" />
+              <ChevronRight class="text-gray-400" :size="20" />
+            </div>
+          </div>
+        </button>
+        <button class="w-full bg-white rounded-2xl p-4 border border-gray-200 active:scale-98 transition-transform">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl">🏃</div>
+            <div class="flex-1 text-left">
+              <div class="font-semibold text-gray-900">Monstar Fitness Race</div>
+              <div class="text-sm text-gray-500">7 Fevereiro 2026</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <Clock class="text-blue-500" :size="20" />
+              <ChevronRight class="text-gray-400" :size="20" />
+            </div>
+          </div>
+        </button>
+        <button class="w-full bg-white rounded-2xl p-4 border border-gray-200 active:scale-98 transition-transform">
+          <div class="flex items-center gap-3">
+            <div class="text-3xl">🏊</div>
+            <div class="flex-1 text-left">
+              <div class="font-semibold text-gray-900">Monstar Run</div>
+              <div class="text-sm text-gray-500">Em breve</div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div class="text-gray-400">🔒</div>
+              <ChevronRight class="text-gray-400" :size="20" />
+            </div>
+          </div>
+        </button>
+      </div>
+
+      <!-- Categorias -->
+      <div class="mb-6">
+        <div class="px-4 mb-3">
+          <h2 class="text-2xl font-bold text-gray-900">Categorias</h2>
+        </div>
+        <div class="overflow-x-auto scrollbar-hide">
+          <div class="flex gap-3 px-4 pb-2">
+            <div class="flex-shrink-0 w-32">
+              <div class="bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl p-4 text-white aspect-square flex flex-col justify-between">
+                <div class="text-xs font-medium opacity-90">CATEGORIA</div>
+                <div>
+                  <div class="font-black text-lg mb-1">TEENS</div>
+                  <div class="text-sm opacity-90">15-17</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex-shrink-0 w-32">
+              <div class="bg-gradient-to-br from-cyan-400 to-blue-500 rounded-2xl p-4 text-white aspect-square flex flex-col justify-between">
+                <div class="text-xs font-medium opacity-90">CATEGORIA</div>
+                <div>
+                  <div class="font-black text-lg mb-1">AMADOR</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex-shrink-0 w-32">
+              <div class="bg-gradient-to-br from-pink-400 to-rose-500 rounded-2xl p-4 text-white aspect-square flex flex-col justify-between">
+                <div class="text-xs font-medium opacity-90">CATEGORIA</div>
+                <div>
+                  <div class="font-black text-lg mb-1">SCALED</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex-shrink-0 w-32">
+              <div class="bg-gradient-to-br from-purple-400 to-indigo-500 rounded-2xl p-4 text-white aspect-square flex flex-col justify-between">
+                <div class="text-xs font-medium opacity-90">CATEGORIA</div>
+                <div>
+                  <div class="font-black text-lg mb-1">ELITE</div>
+                </div>
+              </div>
+            </div>
+            <div class="flex-shrink-0 w-32">
+              <div class="bg-gradient-to-br from-orange-400 to-red-500 rounded-2xl p-4 text-white aspect-square flex flex-col justify-between">
+                <div class="text-xs font-medium opacity-90">CATEGORIA</div>
+                <div>
+                  <div class="font-black text-lg mb-1">MASTER</div>
+                  <div class="text-sm opacity-90">35+</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Próximos Eventos -->
+      <div class="px-4 mb-6">
+        <h2 class="text-2xl font-bold text-gray-900 mb-3">Próximos</h2>
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200">
+          <div class="flex items-center gap-4 p-4">
+            <div class="w-14 h-14 bg-red-500 rounded-2xl flex flex-col items-center justify-center text-white flex-shrink-0">
+              <div class="text-xl font-bold leading-none">15</div>
+              <div class="text-xs font-medium">FEV</div>
+            </div>
+            <div class="flex-1">
+              <div class="font-semibold text-gray-900">Qualifier Final</div>
+              <div class="text-sm text-gray-500 flex items-center gap-1">
+                <MapPin :size="12" />
+                SESI Clube Ferreira Pacheco
+              </div>
+            </div>
+            <div class="text-sm font-medium text-gray-500">08:00</div>
+          </div>
+          <div class="h-px bg-gray-100 mx-4" />
+          <div class="flex items-center gap-4 p-4">
+            <div class="w-14 h-14 bg-red-500 rounded-2xl flex flex-col items-center justify-center text-white flex-shrink-0">
+              <div class="text-xl font-bold leading-none">17</div>
+              <div class="text-xs font-medium">FEV</div>
+            </div>
+            <div class="flex-1">
+              <div class="font-semibold text-gray-900">Finals</div>
+              <div class="text-sm text-gray-500 flex items-center gap-1">
+                <MapPin :size="12" />
+                Arena Principal
+              </div>
+            </div>
+            <div class="text-sm font-medium text-gray-500">14:00</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Web3 Badge -->
+      <div class="px-4 mb-6">
+        <div class="bg-gradient-to-br from-gray-900 to-black rounded-2xl p-6 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400/20 rounded-full blur-3xl" />
+          <div class="relative">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-12 h-12 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center">
+                <Star class="text-white" :size="24" fill="white" />
+              </div>
+              <div>
+                <div class="font-bold text-lg">Seu Badge NFT</div>
+                <div class="text-sm text-gray-400">Verificado • Blockchain</div>
+              </div>
+            </div>
+            <button class="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl py-3 font-semibold text-sm active:scale-95 transition-transform">
+              Ver Certificado Digital
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard Screen -->
+    <div v-if="activeTab === 'leaderboard'" class="pt-12 pb-24 overflow-y-auto">
+      <div class="px-4 py-6">
+        <h1 class="text-3xl font-black text-gray-900 mb-2">Leaderboard</h1>
+        <p class="text-gray-500">Qualifier 2026 • AMADOR</p>
+      </div>
+
+      <div class="px-4 mb-6">
+        <div class="flex gap-2 overflow-x-auto scrollbar-hide pb-2">
+          <button class="px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all active:scale-95 bg-gray-900 text-white">
+            Todos
+          </button>
+          <button class="px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all active:scale-95 bg-white text-gray-700 border border-gray-200">
+            Masculino
+          </button>
+          <button class="px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all active:scale-95 bg-white text-gray-700 border border-gray-200">
+            Feminino
+          </button>
+          <button class="px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all active:scale-95 bg-white text-gray-700 border border-gray-200">
+            Minha Categoria
+          </button>
+        </div>
+      </div>
+
+      <div class="px-4 mb-4">
+        <div class="bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl p-4 text-white">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-sm font-medium opacity-90">SUA POSIÇÃO</span>
+            <CheckCircle2 :size="18" />
+          </div>
+          <div class="flex items-end gap-2">
+            <span class="text-5xl font-black">#23</span>
+            <span class="text-lg opacity-90 mb-2">de 847 atletas</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 space-y-2">
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-white border-2 border-gray-300">
+          <div class="w-8 text-center">🥇</div>
+          <div class="flex-1">
+            <div class="font-semibold text-gray-900">Carlos Silva</div>
+          </div>
+          <div class="text-xl font-bold text-gray-900">956</div>
+        </div>
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-white border-2 border-gray-300">
+          <div class="w-8 text-center">🥈</div>
+          <div class="flex-1">
+            <div class="font-semibold text-gray-900">Ana Costa</div>
+          </div>
+          <div class="text-xl font-bold text-gray-900">943</div>
+        </div>
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-white border-2 border-gray-300">
+          <div class="w-8 text-center">🥉</div>
+          <div class="flex-1">
+            <div class="font-semibold text-gray-900">Pedro Santos</div>
+          </div>
+          <div class="text-xl font-bold text-gray-900">921</div>
+        </div>
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-white border border-gray-200">
+          <div class="w-8 text-center">
+            <span class="font-bold text-gray-500">#4</span>
+          </div>
+          <div class="flex-1">
+            <div class="font-semibold text-gray-900">Maria Oliveira</div>
+          </div>
+          <div class="text-xl font-bold text-gray-900">897</div>
+        </div>
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-white border border-gray-200">
+          <div class="w-8 text-center">
+            <span class="font-bold text-gray-500">#5</span>
+          </div>
+          <div class="flex-1">
+            <div class="font-semibold text-gray-900">João Alves</div>
+          </div>
+          <div class="text-xl font-bold text-gray-900">882</div>
+        </div>
+        <div class="text-center py-4 text-gray-400 text-sm">• • •</div>
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-yellow-100 border-2 border-yellow-400">
+          <div class="w-8 text-center">
+            <span class="font-bold text-gray-500">#23</span>
+          </div>
+          <div class="flex-1">
+            <div class="font-semibold text-yellow-900">Você</div>
+          </div>
+          <div class="text-xl font-bold text-yellow-600">847</div>
+        </div>
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-white border border-gray-200">
+          <div class="w-8 text-center">
+            <span class="font-bold text-gray-500">#24</span>
+          </div>
+          <div class="flex-1">
+            <div class="font-semibold text-gray-900">Lucas Ferreira</div>
+          </div>
+          <div class="text-xl font-bold text-gray-900">845</div>
+        </div>
+        <div class="rounded-2xl p-4 flex items-center gap-4 bg-white border border-gray-200">
+          <div class="w-8 text-center">
+            <span class="font-bold text-gray-500">#25</span>
+          </div>
+          <div class="flex-1">
+            <div class="font-semibold text-gray-900">Juliana Rocha</div>
+          </div>
+          <div class="text-xl font-bold text-gray-900">839</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Events Screen -->
+    <div v-if="activeTab === 'events'" class="pt-12 pb-24 overflow-y-auto">
+      <div class="px-4 py-6">
+        <h1 class="text-3xl font-black text-gray-900 mb-2">Eventos</h1>
+        <p class="text-gray-500">Calendário de eventos 2026</p>
+      </div>
+
+      <div class="px-4 space-y-4 mb-6">
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200">
+          <div class="flex items-center gap-4 p-4">
+            <div class="w-14 h-14 bg-red-500 rounded-2xl flex flex-col items-center justify-center text-white flex-shrink-0">
+              <div class="text-xl font-bold leading-none">15</div>
+              <div class="text-xs font-medium">FEV</div>
+            </div>
+            <div class="flex-1">
+              <div class="font-semibold text-gray-900">Qualifier Final</div>
+              <div class="text-sm text-gray-500 flex items-center gap-1">
+                <MapPin :size="12" />
+                SESI Clube Ferreira Pacheco
+              </div>
+              <div class="text-xs text-gray-400 mt-1">08:00 - 18:00</div>
+            </div>
+            <ChevronRight class="text-gray-400" :size="20" />
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200">
+          <div class="flex items-center gap-4 p-4">
+            <div class="w-14 h-14 bg-red-500 rounded-2xl flex flex-col items-center justify-center text-white flex-shrink-0">
+              <div class="text-xl font-bold leading-none">17</div>
+              <div class="text-xs font-medium">FEV</div>
+            </div>
+            <div class="flex-1">
+              <div class="font-semibold text-gray-900">Finals</div>
+              <div class="text-sm text-gray-500 flex items-center gap-1">
+                <MapPin :size="12" />
+                Arena Principal
+              </div>
+              <div class="text-xs text-gray-400 mt-1">14:00 - 22:00</div>
+            </div>
+            <ChevronRight class="text-gray-400" :size="20" />
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200 opacity-60">
+          <div class="flex items-center gap-4 p-4">
+            <div class="w-14 h-14 bg-gray-400 rounded-2xl flex flex-col items-center justify-center text-white flex-shrink-0">
+              <div class="text-xl font-bold leading-none">7</div>
+              <div class="text-xs font-medium">FEV</div>
+            </div>
+            <div class="flex-1">
+              <div class="font-semibold text-gray-900">Monstar Fitness Race</div>
+              <div class="text-sm text-gray-500 flex items-center gap-1">
+                <MapPin :size="12" />
+                Local a confirmar
+              </div>
+              <div class="text-xs text-gray-400 mt-1">Em breve</div>
+            </div>
+            <Clock class="text-gray-400" :size="20" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Profile Screen -->
+    <div v-if="activeTab === 'profile'" class="pt-12 pb-24 overflow-y-auto">
+      <div class="px-4 py-6">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+            JS
+          </div>
+          <div>
+            <h1 class="text-2xl font-bold text-gray-900">João Silva</h1>
+            <p class="text-gray-500">@joaosilva</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-3 gap-3 mb-6">
+          <div class="bg-white rounded-2xl p-4 text-center border border-gray-200">
+            <div class="text-2xl font-bold text-gray-900">4</div>
+            <div class="text-xs text-gray-500">Eventos</div>
+          </div>
+          <div class="bg-white rounded-2xl p-4 text-center border border-gray-200">
+            <div class="text-2xl font-bold text-gray-900">23</div>
+            <div class="text-xs text-gray-500">Melhor Pos.</div>
+          </div>
+          <div class="bg-white rounded-2xl p-4 text-center border border-gray-200">
+            <div class="text-2xl font-bold text-gray-900">847</div>
+            <div class="text-xs text-gray-500">Total Score</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 mb-6">
+        <h2 class="text-xl font-bold text-gray-900 mb-3">Conquistas</h2>
+        <div class="grid grid-cols-4 gap-3">
+          <div class="aspect-square rounded-2xl flex items-center justify-center text-4xl bg-gradient-to-br from-yellow-400 to-orange-500">
+            🎯
+          </div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center text-4xl bg-gradient-to-br from-yellow-400 to-orange-500">
+            🏅
+          </div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center text-4xl bg-gradient-to-br from-yellow-400 to-orange-500">
+            💎
+          </div>
+          <div class="aspect-square rounded-2xl flex items-center justify-center text-4xl bg-gray-200 grayscale opacity-50">
+            👑
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4">
+        <div class="bg-white rounded-2xl overflow-hidden border border-gray-200">
+          <button class="w-full flex items-center gap-3 p-4 active:bg-gray-50 transition-colors">
+            <Bell class="text-gray-700" :size="20" />
+            <div class="flex-1 text-left font-medium text-gray-900">Notificações</div>
+            <ChevronRight class="text-gray-400" :size="20" />
+          </button>
+          <div class="h-px bg-gray-100 mx-4" />
+          <button class="w-full flex items-center gap-3 p-4 active:bg-gray-50 transition-colors">
+            <Share2 class="text-gray-700" :size="20" />
+            <div class="flex-1 text-left font-medium text-gray-900">Compartilhar Perfil</div>
+            <ChevronRight class="text-gray-400" :size="20" />
+          </button>
+          <div class="h-px bg-gray-100 mx-4" />
+          <button class="w-full flex items-center gap-3 p-4 active:bg-gray-50 transition-colors">
+            <Star class="text-gray-700" :size="20" />
+            <div class="flex-1 text-left font-medium text-gray-900">Badge NFT</div>
+            <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">Novo</span>
+            <ChevronRight class="text-gray-400" :size="20" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-2xl border-t border-gray-200 pb-safe z-50">
+      <div class="flex justify-around items-center h-20 px-2">
+        <button
+          @click="activeTab = 'home'"
+          :class="[
+            'flex flex-col items-center gap-1 px-4 py-2 transition-all active:scale-95',
+            activeTab === 'home' ? 'text-gray-900' : 'text-gray-400'
+          ]"
+        >
+          <Home :size="24" />
+          <span class="text-xs font-medium">Início</span>
+        </button>
+        <button
+          @click="activeTab = 'leaderboard'"
+          :class="[
+            'flex flex-col items-center gap-1 px-4 py-2 transition-all active:scale-95',
+            activeTab === 'leaderboard' ? 'text-gray-900' : 'text-gray-400'
+          ]"
+        >
+          <Trophy :size="24" />
+          <span class="text-xs font-medium">Ranking</span>
+        </button>
+        <button
+          @click="activeTab = 'events'"
+          :class="[
+            'flex flex-col items-center gap-1 px-4 py-2 transition-all active:scale-95',
+            activeTab === 'events' ? 'text-gray-900' : 'text-gray-400'
+          ]"
+        >
+          <Calendar :size="24" />
+          <span class="text-xs font-medium">Eventos</span>
+        </button>
+        <button
+          @click="activeTab = 'profile'"
+          :class="[
+            'flex flex-col items-center gap-1 px-4 py-2 transition-all active:scale-95',
+            activeTab === 'profile' ? 'text-gray-900' : 'text-gray-400'
+          ]"
+        >
+          <User :size="24" />
+          <span class="text-xs font-medium">Perfil</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import {
+  Home,
+  Trophy,
+  Calendar,
+  User,
+  ChevronRight,
+  Star,
+  TrendingUp,
+  Clock,
+  MapPin,
+  Share2,
+  Bell,
+  CheckCircle2,
+} from 'lucide-vue-next'
+
+const activeTab = ref('home')
+const showNotification = ref(false)
+
+onMounted(() => {
+  setTimeout(() => (showNotification.value = true), 1000)
+  setTimeout(() => (showNotification.value = false), 4000)
+})
+</script>
