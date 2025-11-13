@@ -4,12 +4,11 @@
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl h-12">
       <div class="flex justify-between items-center px-6 h-full text-white text-xs">
         <span class="font-semibold">{{ currentTime }}</span>
-        <div class="flex gap-1">
-          <div class="w-4 h-3 border border-white rounded-sm" />
-          <div class="w-4 h-3 border border-white rounded-sm opacity-70" />
-          <div class="w-4 h-3 border border-white rounded-sm opacity-40" />
-          <div class="w-2 h-3 bg-white rounded-sm ml-1" />
-        </div>
+        <img 
+          src="/logo/logo_hrz.png" 
+          alt="Monstar Games" 
+          class="h-6 object-contain"
+        />
       </div>
     </div>
 
@@ -30,7 +29,7 @@
               Monstar Games
             </div>
             <div class="text-sm text-gray-700">
-              Novo WOD liberado: "Fran" • 21-15-9
+              Teste de App liberado: "NEØ" • 21-15-9
             </div>
           </div>
           <span class="text-xs text-gray-500 flex-shrink-0">agora</span>
