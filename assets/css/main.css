@@ -28,13 +28,42 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #f9fafb;
+  background: #000;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Desfoque no background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-image: url('/images/BG-A.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 100vh;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  z-index: -2;
+}
+
+/* Camada escura com opacidade e vinheta */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  /* Efeito vinheta - bordas mais escuras */
+  box-shadow: inset 0 0 200px 100px rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Esconder scrollbar em todos os navegadores */
