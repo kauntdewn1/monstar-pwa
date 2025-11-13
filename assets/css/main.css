@@ -20,6 +20,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  touch-action: pan-y;
 }
 
 body {
@@ -38,5 +39,40 @@ body {
 
 .pb-safe {
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Scroll habilitado para PWA */
+.scrollable-content {
+  -webkit-overflow-scrolling: touch;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  will-change: scroll-position;
+}
+
+/* Garantir que body e html permitam scroll */
+html {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+}
+
+/* Prevenir scroll horizontal */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Garantir que o container principal permita scroll */
+#__nuxt {
+  height: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
 }
 

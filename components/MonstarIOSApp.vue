@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full max-w-md mx-auto h-screen bg-gray-50 overflow-hidden">
+  <div class="relative w-full max-w-md mx-auto h-screen bg-gray-50 flex flex-col overflow-hidden">
     <!-- Status Bar -->
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl h-12">
       <div class="flex justify-between items-center px-6 h-full text-white text-xs">
@@ -39,7 +39,7 @@
     </div>
 
     <!-- Home Screen -->
-    <div v-if="activeTab === 'home'" class="pt-12 pb-24 overflow-y-auto">
+    <div v-if="activeTab === 'home'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <!-- Hero Card -->
       <div class="px-4 pt-6 pb-4">
         <div class="relative overflow-hidden rounded-3xl">
@@ -251,7 +251,7 @@
     </div>
 
     <!-- Leaderboard Screen -->
-    <div v-if="activeTab === 'leaderboard'" class="pt-12 pb-24 overflow-y-auto">
+    <div v-if="activeTab === 'leaderboard'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <div class="px-4 py-6">
         <h1 class="text-3xl font-black text-gray-900 mb-2">Leaderboard</h1>
         <p class="text-gray-500">Qualifier 2026 • AMADOR</p>
@@ -359,7 +359,7 @@
     </div>
 
     <!-- Events Screen -->
-    <div v-if="activeTab === 'events'" class="pt-12 pb-24 overflow-y-auto">
+    <div v-if="activeTab === 'events'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <div class="px-4 py-6">
         <h1 class="text-3xl font-black text-gray-900 mb-2">Eventos</h1>
         <p class="text-gray-500">Calendário de eventos 2026</p>
@@ -423,7 +423,7 @@
     </div>
 
     <!-- Profile Screen -->
-    <div v-if="activeTab === 'profile'" class="pt-12 pb-24 overflow-y-auto">
+    <div v-if="activeTab === 'profile'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <div class="px-4 py-6">
         <div class="flex items-center gap-4 mb-6">
           <div class="w-20 h-20 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center text-white text-2xl font-bold">
