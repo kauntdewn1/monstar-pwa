@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full max-w-md mx-auto h-screen flex flex-col overflow-hidden">
+  <div class="relative w-full max-w-md mx-auto h-screen flex flex-col overflow-hidden z-10">
     <!-- Status Bar -->
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl h-12">
       <div class="flex justify-between items-center px-6 h-full text-white text-xs">

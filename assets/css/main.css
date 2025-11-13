@@ -80,11 +80,11 @@ body::after {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.2;
-  z-index: -1;
+  opacity: 0.3;
+  z-index: 0;
   pointer-events: none;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
+  filter: blur(0.5px);
+  -webkit-filter: blur(0.5px);
 }
 
 /* Esconder scrollbar em todos os navegadores */
