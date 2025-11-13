@@ -56,9 +56,18 @@
               <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
               <span class="text-sm font-medium opacity-90">QUALIFIER ABERTO</span>
             </div>
-            <h1 class="text-3xl font-black mb-2">Monstar Games 2026</h1>
-            <p class="text-sm opacity-90 mb-6">Goiânia • 15-17 Fevereiro</p>
-            <button class="w-full bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl py-4 font-bold text-white active:scale-95 transition-transform flex items-center justify-center gap-2">
+            <div class="flex items-center gap-4 mb-2">
+              <img 
+                src="/logo/logo_oficial.png" 
+                alt="Monstar Games Logo" 
+                class="w-16 h-16 object-contain flex-shrink-0"
+              />
+              <div>
+                <h1 class="text-3xl font-black">Monstar Games 2026</h1>
+                <p class="text-sm opacity-90 mt-1">Goiânia • 15-17 Fevereiro</p>
+              </div>
+            </div>
+            <button class="w-full bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl py-4 font-bold text-white active:scale-95 transition-transform flex items-center justify-center gap-2 mt-6">
               INSCREVER-SE AGORA
               <ChevronRight :size="20" />
             </button>
