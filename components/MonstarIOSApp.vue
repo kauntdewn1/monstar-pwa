@@ -502,7 +502,7 @@
     </div>
 
     <!-- Tab Bar -->
-    <div class="fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-2xl border-t border-gray-200 pb-safe z-50">
+    <div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-2xl border-t border-gray-200 pb-safe z-[100]">
       <div class="flex justify-around items-center h-20 px-2">
         <button
           @click="activeTab = 'home'"
