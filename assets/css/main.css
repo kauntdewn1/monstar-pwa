@@ -47,7 +47,7 @@ body::before {
   background-repeat: no-repeat;
   background-attachment: fixed;
   filter: blur(2px);
-  -webkit-filter: blur(2px);
+  -webkit-filter: blur(6px);
   z-index: -3;
 }
 
@@ -59,9 +59,9 @@ body::after {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(251, 248, 248, 0.3);
   /* Efeito vinheta - bordas mais escuras */
-  box-shadow: inset 0 0 200px 100px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 500px 400px rgba(255, 255, 255, 0.5);
   z-index: -2;
   pointer-events: none;
 }
@@ -95,6 +95,13 @@ body::after {
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+/* Suavizar scroll horizontal */
+.overflow-x-auto {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
 }
 
 /* Esconder scrollbar globalmente para PWA */

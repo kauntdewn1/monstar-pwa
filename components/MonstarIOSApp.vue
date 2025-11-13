@@ -1,7 +1,7 @@
 <template>
   <div class="relative w-full max-w-md mx-auto h-screen flex flex-col overflow-hidden z-10">
     <!-- Status Bar -->
-    <div class="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl h-12">
+    <div class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl h-12">
       <div class="flex justify-between items-center px-6 h-full text-white text-xs">
         <span class="font-semibold">9:41</span>
         <div class="flex gap-1">
@@ -43,7 +43,7 @@
       <!-- Hero Card -->
       <div class="px-4 pt-6 pb-4">
         <div class="relative overflow-hidden rounded-3xl">
-          <div class="absolute inset-0 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500" />
+          <div class="absolute inset-0 bg-gradient-to-br from-pink-800 via-orange-800 to-red-500" />
           <div
             class="absolute inset-0 opacity-10"
             :style="{
@@ -79,40 +79,40 @@
       <div class="px-4 mb-6">
         <div class="grid grid-cols-3 gap-3">
           <div class="glass-card rounded-2xl p-4">
-            <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center text-white mb-2">
+            <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center text-black mb-2">
               <Trophy :size="18" />
             </div>
-            <div class="text-xs text-white/80 mb-1">Posição</div>
-            <div class="text-xl font-bold text-white">#23</div>
+            <div class="text-xs text-black/80 mb-1">Posição</div>
+            <div class="text-xl font-bold text-black">#23</div>
           </div>
           <div class="glass-card rounded-2xl p-4">
-            <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center text-white mb-2">
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-xl flex items-center justify-center text-black mb-2">
               <Clock :size="18" />
             </div>
-            <div class="text-xs text-white/80 mb-1">WODs</div>
-            <div class="text-xl font-bold text-white">4/4</div>
+            <div class="text-xs text-black/80 mb-1">WODs</div>
+            <div class="text-xl font-bold text-black">4/4</div>
           </div>
           <div class="glass-card rounded-2xl p-4">
-            <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center text-white mb-2">
+            <div class="w-8 h-8 bg-gradient-to-br from-purple-400 to-pink-500 rounded-xl flex items-center justify-center text-black mb-2">
               <TrendingUp :size="18" />
             </div>
-            <div class="text-xs text-white/80 mb-1">Score</div>
-            <div class="text-xl font-bold text-white">847</div>
+            <div class="text-xs text-black/80 mb-1">Score</div>
+            <div class="text-xl font-bold text-black">847</div>
           </div>
         </div>
       </div>
 
       <!-- Modalidades -->
       <div class="px-4 mb-3">
-        <h2 class="text-2xl font-bold text-white drop-shadow-lg">Modalidades</h2>
+        <h2 class="text-2xl font-bold text-black drop-shadow-lg">Modalidades</h2>
       </div>
       <div class="px-4 space-y-2 mb-6">
         <button class="w-full glass-card rounded-2xl p-4 active:scale-98 transition-transform">
           <div class="flex items-center gap-3">
             <div class="text-3xl">🏋️</div>
             <div class="flex-1 text-left">
-              <div class="font-semibold text-white">Workouts Qualifier</div>
-              <div class="text-sm text-white/80">4 WODs • Finalizado</div>
+              <div class="font-semibold text-black">Workouts Qualifier</div>
+              <div class="text-sm text-black/80">4 WODs • Finalizado</div>
             </div>
             <div class="flex items-center gap-2">
               <CheckCircle2 class="text-green-300" :size="20" />
@@ -124,12 +124,12 @@
           <div class="flex items-center gap-3">
             <div class="text-3xl">🏃</div>
             <div class="flex-1 text-left">
-              <div class="font-semibold text-white">Monstar Fitness Race</div>
-              <div class="text-sm text-white/80">7 Fevereiro 2026</div>
+              <div class="font-semibold text-black">Monstar Fitness Race</div>
+              <div class="text-sm text-black/80">7 Fevereiro 2026</div>
             </div>
             <div class="flex items-center gap-2">
               <Clock class="text-blue-300" :size="20" />
-              <ChevronRight class="text-white/60" :size="20" />
+              <ChevronRight class="text-black/60" :size="20" />
             </div>
           </div>
         </button>
@@ -137,12 +137,12 @@
           <div class="flex items-center gap-3">
             <div class="text-3xl">🏊</div>
             <div class="flex-1 text-left">
-              <div class="font-semibold text-white">Monstar Run</div>
-              <div class="text-sm text-white/80">Em breve</div>
+              <div class="font-semibold text-black">Monstar Run</div>
+              <div class="text-sm text-black/80">Em breve</div>
             </div>
             <div class="flex items-center gap-2">
-              <div class="text-white/60">🔒</div>
-              <ChevronRight class="text-white/60" :size="20" />
+              <div class="text-black/60">🔒</div>
+              <ChevronRight class="text-black/60" :size="20" />
             </div>
           </div>
         </button>
@@ -151,10 +151,10 @@
       <!-- Categorias -->
       <div class="mb-6">
         <div class="px-4 mb-3">
-          <h2 class="text-2xl font-bold text-white drop-shadow-lg">Categorias</h2>
+          <h2 class="text-2xl font-bold text-black drop-shadow-lg">Categorias</h2>
         </div>
-        <div class="overflow-x-auto scrollbar-hide">
-          <div class="flex gap-3 px-4 pb-2">
+        <div class="overflow-x-auto scrollbar-hide -mx-4 px-4">
+          <div class="flex gap-3 pb-2">
             <div class="flex-shrink-0 w-32">
               <div class="bg-gradient-to-br from-yellow-400 to-amber-500 rounded-2xl p-4 text-white aspect-square flex flex-col justify-between">
                 <div class="text-xs font-medium opacity-90">CATEGORIA</div>
@@ -203,7 +203,7 @@
 
       <!-- Próximos Eventos -->
       <div class="px-4 mb-6">
-        <h2 class="text-2xl font-bold text-white drop-shadow-lg mb-3">Próximos</h2>
+        <h2 class="text-2xl font-bold text-black drop-shadow-lg mb-3">Próximos</h2>
         <div class="glass-card rounded-2xl overflow-hidden">
           <div class="flex items-center gap-4 p-4">
             <div class="w-14 h-14 bg-red-500 rounded-2xl flex flex-col items-center justify-center text-white flex-shrink-0">
@@ -211,13 +211,13 @@
               <div class="text-xs font-medium">FEV</div>
             </div>
             <div class="flex-1">
-              <div class="font-semibold text-white">Qualifier Final</div>
-              <div class="text-sm text-white/80 flex items-center gap-1">
+              <div class="font-semibold text-black">Qualifier Final</div>
+              <div class="text-sm text-black/80 flex items-center gap-1">
                 <MapPin :size="12" />
                 SESI Clube Ferreira Pacheco
               </div>
             </div>
-            <div class="text-sm font-medium text-white/80">08:00</div>
+            <div class="text-sm font-medium text-black/80">08:00</div>
           </div>
           <div class="h-px bg-white/20 mx-4" />
           <div class="flex items-center gap-4 p-4">
@@ -226,13 +226,13 @@
               <div class="text-xs font-medium">FEV</div>
             </div>
             <div class="flex-1">
-              <div class="font-semibold text-white">Finals</div>
-              <div class="text-sm text-white/80 flex items-center gap-1">
+              <div class="font-semibold text-black">Finals</div>
+              <div class="text-sm text-black/80 flex items-center gap-1">
                 <MapPin :size="12" />
                 Arena Principal
               </div>
             </div>
-            <div class="text-sm font-medium text-white/80">14:00</div>
+            <div class="text-sm font-medium text-black/80">14:00</div>
           </div>
         </div>
       </div>
@@ -247,7 +247,7 @@
                 <Star class="text-white" :size="24" fill="white" />
               </div>
               <div>
-                <div class="font-bold text-lg">Seu Badge NFT</div>
+                <div class="font-bold text-lg">Seu QR Code  NFT</div>
                 <div class="text-sm text-gray-400">Verificado • Blockchain</div>
               </div>
             </div>
@@ -262,7 +262,7 @@
     <!-- Leaderboard Screen -->
     <div v-if="activeTab === 'leaderboard'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <div class="px-4 py-6">
-        <h1 class="text-3xl font-black text-white drop-shadow-lg mb-2">Leaderboard</h1>
+        <h1 class="text-3xl font-black text-black drop-shadow-lg mb-2">Leaderboard</h1>
         <p class="text-white/80">Qualifier 2026 • AMADOR</p>
       </div>
 
@@ -370,7 +370,7 @@
     <!-- Events Screen -->
     <div v-if="activeTab === 'events'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <div class="px-4 py-6">
-        <h1 class="text-3xl font-black text-white drop-shadow-lg mb-2">Eventos</h1>
+        <h1 class="text-3xl font-black text-black drop-shadow-lg mb-2">Eventos</h1>
         <p class="text-white/80">Calendário de eventos 2026</p>
       </div>
 
