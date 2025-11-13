@@ -1,5 +1,6 @@
 <template>
   <div class="min-h-screen w-full">
+    <div id="star-overlay"></div>
     <MonstarIOSApp />
   </div>
 </template>

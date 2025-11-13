@@ -66,6 +66,34 @@ body::after {
   pointer-events: none;
 }
 
+/* Estrela grande sobre o background */
+body {
+  position: relative;
+}
+
+body::before {
+  z-index: -3;
+}
+
+/* Adicionar estrela como elemento adicional */
+#star-overlay {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1200px;
+  height: 1200px;
+  background-image: url('/logo/star.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
 /* Esconder scrollbar em todos os navegadores */
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
