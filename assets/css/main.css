@@ -46,8 +46,8 @@ body::before {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  filter: blur(2px);
-  -webkit-filter: blur(6px);
+  filter: blur(2px) grayscale(100%);
+  -webkit-filter: blur(2px) grayscale(100%);
   z-index: -3;
 }
 

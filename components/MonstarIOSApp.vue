@@ -247,12 +247,12 @@
                 <Star class="text-white" :size="24" fill="white" />
               </div>
               <div>
-                <div class="font-bold text-lg">Seu QR Code  NFT</div>
-                <div class="text-sm text-gray-400">Verificado • Blockchain</div>
+                <div class="font-bold text-lg">Seu QR Code de acesso</div>
+                <div class="text-sm text-gray-400"> • Confirmado • Monstar Games 2026</div>
               </div>
             </div>
             <button class="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl py-3 font-semibold text-sm active:scale-95 transition-transform">
-              Ver Certificado Digital
+              Ver QR Code
             </button>
           </div>
         </div>
