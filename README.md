@@ -32,13 +32,28 @@ npm run build
 
 ## 📱 Deploy na Vercel
 
-O projeto está configurado para deploy na Vercel. Basta conectar o repositório na Vercel e o deploy será automático.
+### Opção 1: Deploy Automático via GitHub
+
+1. Acesse [vercel.com](https://vercel.com)
+2. Conecte seu repositório GitHub: `https://github.com/kauntdewn1/monstar-pwa.git`
+3. A Vercel detectará automaticamente o Nuxt 3
+4. Clique em "Deploy"
+5. Pronto! O PWA estará online
+
+### Opção 2: Deploy via CLI
+
+```bash
+npm i -g vercel
+vercel
+```
 
 ### Configurações importantes:
 
-- O PWA está configurado com `@vite-pwa/nuxt`
-- Os ícones estão em `/public/logo/`
-- O manifest.json é gerado automaticamente
+- ✅ Porta padrão: 3000 (configurada no `nuxt.config.ts`)
+- ✅ PWA configurado com `@vite-pwa/nuxt`
+- ✅ Ícones em `/public/logo/`
+- ✅ Manifest.json gerado automaticamente
+- ✅ Service Worker configurado para cache offline
 
 ## 📄 Licença
 
