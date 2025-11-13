@@ -1,5 +1,5 @@
 <template>
-  <div class="relative w-full max-w-md mx-auto h-screen flex flex-col overflow-hidden z-10">
+  <div class="relative w-full max-w-md mx-auto h-screen flex flex-col overflow-hidden z-10 bg-white">
     <!-- Status Bar -->
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl h-12">
       <div class="flex justify-between items-center px-6 h-full text-white text-xs">
@@ -218,7 +218,7 @@
             </div>
             <div class="text-sm font-medium text-black/80">08:00</div>
           </div>
-          <div class="h-px bg-white/20 mx-4" />
+            <div class="h-px bg-black/10 mx-4" />
           <div class="flex items-center gap-4 p-4">
             <div class="w-14 h-14 bg-red-500 rounded-2xl flex flex-col items-center justify-center text-white flex-shrink-0">
               <div class="text-xl font-bold leading-none">17</div>
@@ -238,7 +238,7 @@
 
       <!-- Web3 Badge -->
       <div class="px-4 mb-6">
-        <div class="glass-card-dark rounded-2xl p-6 text-white relative overflow-hidden">
+        <div class="glass-card-dark rounded-2xl p-6 text-black relative overflow-hidden">
           <div class="absolute top-0 right-0 w-32 h-32 bg-yellow-400/20 rounded-full blur-3xl" />
           <div class="relative">
             <div class="flex items-center gap-3 mb-4">
@@ -246,11 +246,11 @@
                 <Star class="text-white" :size="24" fill="white" />
               </div>
               <div>
-                <div class="font-bold text-lg">Seu QR Code de acesso</div>
-                <div class="text-sm text-gray-400"> • Confirmado • Monstar Games 2026</div>
+                <div class="font-bold text-lg text-black">Seu QR Code de acesso</div>
+                <div class="text-sm text-black/70"> • Confirmado • Monstar Games 2026</div>
               </div>
             </div>
-            <button class="w-full bg-white/10 backdrop-blur-xl border border-white/20 rounded-xl py-3 font-semibold text-sm active:scale-95 transition-transform">
+            <button class="w-full bg-black/10 backdrop-blur-xl border border-black/20 rounded-xl py-3 font-semibold text-sm text-black active:scale-95 transition-transform">
               Ver QR Code
             </button>
           </div>
@@ -262,7 +262,7 @@
     <div v-if="activeTab === 'leaderboard'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <div class="px-4 py-6">
         <h1 class="text-3xl font-black text-black drop-shadow-lg mb-2">Leaderboard</h1>
-        <p class="text-white/80">Qualifier 2026 • AMADOR</p>
+        <p class="text-black/70">Qualifier 2026 • AMADOR</p>
       </div>
 
       <div class="px-4 mb-6">
@@ -296,72 +296,72 @@
       </div>
 
       <div class="px-4 space-y-2">
-        <div class="glass-card rounded-2xl p-4 flex items-center gap-4 border-2 border-white/30">
+        <div class="glass-card rounded-2xl p-4 flex items-center gap-4 border-2 border-black/10">
           <div class="w-8 text-center">🥇</div>
           <div class="flex-1">
-            <div class="font-semibold text-white">Carlos Silva</div>
+            <div class="font-semibold text-black">Carlos Silva</div>
           </div>
-          <div class="text-xl font-bold text-white">956</div>
+          <div class="text-xl font-bold text-black">956</div>
         </div>
-        <div class="glass-card rounded-2xl p-4 flex items-center gap-4 border-2 border-white/30">
+        <div class="glass-card rounded-2xl p-4 flex items-center gap-4 border-2 border-black/10">
           <div class="w-8 text-center">🥈</div>
           <div class="flex-1">
-            <div class="font-semibold text-white">Ana Costa</div>
+            <div class="font-semibold text-black">Ana Costa</div>
           </div>
-          <div class="text-xl font-bold text-white">943</div>
+          <div class="text-xl font-bold text-black">943</div>
         </div>
-        <div class="glass-card rounded-2xl p-4 flex items-center gap-4 border-2 border-white/30">
+        <div class="glass-card rounded-2xl p-4 flex items-center gap-4 border-2 border-black/10">
           <div class="w-8 text-center">🥉</div>
           <div class="flex-1">
-            <div class="font-semibold text-white">Pedro Santos</div>
+            <div class="font-semibold text-black">Pedro Santos</div>
           </div>
-          <div class="text-xl font-bold text-white">921</div>
+          <div class="text-xl font-bold text-black">921</div>
         </div>
         <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
           <div class="w-8 text-center">
-            <span class="font-bold text-white/70">#4</span>
+            <span class="font-bold text-black/70">#4</span>
           </div>
           <div class="flex-1">
-            <div class="font-semibold text-white">Maria Oliveira</div>
+            <div class="font-semibold text-black">Maria Oliveira</div>
           </div>
-          <div class="text-xl font-bold text-white">897</div>
+          <div class="text-xl font-bold text-black">897</div>
         </div>
         <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
           <div class="w-8 text-center">
-            <span class="font-bold text-white/70">#5</span>
+            <span class="font-bold text-black/70">#5</span>
           </div>
           <div class="flex-1">
-            <div class="font-semibold text-white">João Alves</div>
+            <div class="font-semibold text-black">João Alves</div>
           </div>
-          <div class="text-xl font-bold text-white">882</div>
+          <div class="text-xl font-bold text-black">882</div>
         </div>
-        <div class="text-center py-4 text-white/60 text-sm">• • •</div>
+        <div class="text-center py-4 text-black/60 text-sm">• • •</div>
         <div class="glass-card-highlight rounded-2xl p-4 flex items-center gap-4 border-2 border-yellow-400/50">
           <div class="w-8 text-center">
-            <span class="font-bold text-white/70">#23</span>
+            <span class="font-bold text-black/70">#23</span>
           </div>
           <div class="flex-1">
-            <div class="font-semibold text-white">Você</div>
+            <div class="font-semibold text-black">Você</div>
           </div>
-          <div class="text-xl font-bold text-yellow-300">847</div>
+          <div class="text-xl font-bold text-yellow-600">847</div>
         </div>
         <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
           <div class="w-8 text-center">
-            <span class="font-bold text-white/70">#24</span>
+            <span class="font-bold text-black/70">#24</span>
           </div>
           <div class="flex-1">
-            <div class="font-semibold text-white">Lucas Ferreira</div>
+            <div class="font-semibold text-black">Lucas Ferreira</div>
           </div>
-          <div class="text-xl font-bold text-white">845</div>
+          <div class="text-xl font-bold text-black">845</div>
         </div>
         <div class="glass-card rounded-2xl p-4 flex items-center gap-4">
           <div class="w-8 text-center">
-            <span class="font-bold text-white/70">#25</span>
+            <span class="font-bold text-black/70">#25</span>
           </div>
           <div class="flex-1">
-            <div class="font-semibold text-white">Juliana Rocha</div>
+            <div class="font-semibold text-black">Juliana Rocha</div>
           </div>
-          <div class="text-xl font-bold text-white">839</div>
+          <div class="text-xl font-bold text-black">839</div>
         </div>
       </div>
     </div>
@@ -370,7 +370,7 @@
     <div v-if="activeTab === 'events'" class="flex-1 pt-12 pb-24 overflow-y-auto scrollable-content">
       <div class="px-4 py-6">
         <h1 class="text-3xl font-black text-black drop-shadow-lg mb-2">Eventos</h1>
-        <p class="text-white/80">Calendário de eventos 2026</p>
+        <p class="text-black/70">Calendário de eventos 2026</p>
       </div>
 
       <div class="px-4 space-y-4 mb-6">
@@ -381,14 +381,14 @@
               <div class="text-xs font-medium">FEV</div>
             </div>
             <div class="flex-1">
-              <div class="font-semibold text-white">Qualifier Final</div>
-              <div class="text-sm text-white/80 flex items-center gap-1">
+              <div class="font-semibold text-black">Qualifier Final</div>
+              <div class="text-sm text-black/80 flex items-center gap-1">
                 <MapPin :size="12" />
                 SESI Clube Ferreira Pacheco
               </div>
-              <div class="text-xs text-white/60 mt-1">08:00 - 18:00</div>
+              <div class="text-xs text-black/60 mt-1">08:00 - 18:00</div>
             </div>
-            <ChevronRight class="text-white/60" :size="20" />
+            <ChevronRight class="text-black/60" :size="20" />
           </div>
         </div>
 
@@ -399,14 +399,14 @@
               <div class="text-xs font-medium">FEV</div>
             </div>
             <div class="flex-1">
-              <div class="font-semibold text-white">Finals</div>
-              <div class="text-sm text-white/80 flex items-center gap-1">
+              <div class="font-semibold text-black">Finals</div>
+              <div class="text-sm text-black/80 flex items-center gap-1">
                 <MapPin :size="12" />
                 Arena Principal
               </div>
-              <div class="text-xs text-white/60 mt-1">14:00 - 22:00</div>
+              <div class="text-xs text-black/60 mt-1">14:00 - 22:00</div>
             </div>
-            <ChevronRight class="text-white/60" :size="20" />
+            <ChevronRight class="text-black/60" :size="20" />
           </div>
         </div>
 
@@ -417,14 +417,14 @@
               <div class="text-xs font-medium">FEV</div>
             </div>
             <div class="flex-1">
-              <div class="font-semibold text-white">Monstar Fitness Race</div>
-              <div class="text-sm text-white/80 flex items-center gap-1">
+              <div class="font-semibold text-black">Monstar Fitness Race</div>
+              <div class="text-sm text-black/80 flex items-center gap-1">
                 <MapPin :size="12" />
                 Local a confirmar
               </div>
-              <div class="text-xs text-white/60 mt-1">Em breve</div>
+              <div class="text-xs text-black/60 mt-1">Em breve</div>
             </div>
-            <Clock class="text-white/60" :size="20" />
+            <Clock class="text-black/60" :size="20" />
           </div>
         </div>
       </div>
@@ -438,29 +438,29 @@
             JS
           </div>
           <div>
-            <h1 class="text-2xl font-bold text-white drop-shadow-lg">João Silva</h1>
-            <p class="text-white/80">@joaosilva</p>
+            <h1 class="text-2xl font-bold text-black drop-shadow-lg">João Silva</h1>
+            <p class="text-black/70">@joaosilva</p>
           </div>
         </div>
 
         <div class="grid grid-cols-3 gap-3 mb-6">
           <div class="glass-card rounded-2xl p-4 text-center">
-            <div class="text-2xl font-bold text-white">4</div>
-            <div class="text-xs text-white/80">Eventos</div>
+            <div class="text-2xl font-bold text-black">4</div>
+            <div class="text-xs text-black/80">Eventos</div>
           </div>
           <div class="glass-card rounded-2xl p-4 text-center">
-            <div class="text-2xl font-bold text-white">23</div>
-            <div class="text-xs text-white/80">Melhor Pos.</div>
+            <div class="text-2xl font-bold text-black">23</div>
+            <div class="text-xs text-black/80">Melhor Pos.</div>
           </div>
           <div class="glass-card rounded-2xl p-4 text-center">
-            <div class="text-2xl font-bold text-white">847</div>
-            <div class="text-xs text-white/80">Total Score</div>
+            <div class="text-2xl font-bold text-black">847</div>
+            <div class="text-xs text-black/80">Total Score</div>
           </div>
         </div>
       </div>
 
       <div class="px-4 mb-6">
-        <h2 class="text-xl font-bold text-white drop-shadow-lg mb-3">Conquistas</h2>
+        <h2 class="text-xl font-bold text-black drop-shadow-lg mb-3">Conquistas</h2>
         <div class="grid grid-cols-4 gap-3">
           <div class="aspect-square rounded-2xl flex items-center justify-center text-4xl bg-gradient-to-br from-yellow-400 to-orange-500">
             🎯
@@ -479,23 +479,23 @@
 
       <div class="px-4">
         <div class="glass-card rounded-2xl overflow-hidden">
-          <button class="w-full flex items-center gap-3 p-4 active:bg-white/10 transition-colors">
-            <Bell class="text-white" :size="20" />
-            <div class="flex-1 text-left font-medium text-white">Notificações</div>
-            <ChevronRight class="text-white/60" :size="20" />
+          <button class="w-full flex items-center gap-3 p-4 active:bg-black/5 transition-colors">
+            <Bell class="text-black" :size="20" />
+            <div class="flex-1 text-left font-medium text-black">Notificações</div>
+            <ChevronRight class="text-black/60" :size="20" />
           </button>
-          <div class="h-px bg-white/20 mx-4" />
-          <button class="w-full flex items-center gap-3 p-4 active:bg-white/10 transition-colors">
-            <Share2 class="text-white" :size="20" />
-            <div class="flex-1 text-left font-medium text-white">Compartilhar Perfil</div>
-            <ChevronRight class="text-white/60" :size="20" />
+          <div class="h-px bg-black/10 mx-4" />
+          <button class="w-full flex items-center gap-3 p-4 active:bg-black/5 transition-colors">
+            <Share2 class="text-black" :size="20" />
+            <div class="flex-1 text-left font-medium text-black">Compartilhar Perfil</div>
+            <ChevronRight class="text-black/60" :size="20" />
           </button>
-          <div class="h-px bg-white/20 mx-4" />
-          <button class="w-full flex items-center gap-3 p-4 active:bg-white/10 transition-colors">
-            <Star class="text-white" :size="20" />
-            <div class="flex-1 text-left font-medium text-white">Badge NFT</div>
+          <div class="h-px bg-black/10 mx-4" />
+          <button class="w-full flex items-center gap-3 p-4 active:bg-black/5 transition-colors">
+            <Star class="text-black" :size="20" />
+            <div class="flex-1 text-left font-medium text-black">Badge NFT</div>
             <span class="bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">Novo</span>
-            <ChevronRight class="text-white/60" :size="20" />
+            <ChevronRight class="text-black/60" :size="20" />
           </button>
         </div>
       </div>
