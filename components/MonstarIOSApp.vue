@@ -3,7 +3,7 @@
     <!-- Status Bar -->
     <div class="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-xl h-12">
       <div class="flex justify-between items-center px-6 h-full text-white text-xs">
-        <span class="font-semibold">9:41</span>
+        <span class="font-semibold">{{ currentTime }}</span>
         <div class="flex gap-1">
           <div class="w-4 h-3 border border-white rounded-sm" />
           <div class="w-4 h-3 border border-white rounded-sm opacity-70" />
@@ -551,7 +551,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import {
   Home,
   Trophy,
@@ -569,9 +569,33 @@ import {
 
 const activeTab = ref('home')
 const showNotification = ref(false)
+const currentTime = ref('')
+
+// Função para formatar a hora
+const updateTime = () => {
+  const now = new Date()
+  const hours = now.getHours().toString().padStart(2, '0')
+  const minutes = now.getMinutes().toString().padStart(2, '0')
+  currentTime.value = `${hours}:${minutes}`
+}
+
+let timeInterval: NodeJS.Timeout | null = null
 
 onMounted(() => {
+  // Atualiza a hora imediatamente
+  updateTime()
+  
+  // Atualiza a cada minuto
+  timeInterval = setInterval(updateTime, 60000)
+  
+  // Notificação
   setTimeout(() => (showNotification.value = true), 1000)
   setTimeout(() => (showNotification.value = false), 4000)
+})
+
+onUnmounted(() => {
+  if (timeInterval) {
+    clearInterval(timeInterval)
+  }
 })
 </script>
